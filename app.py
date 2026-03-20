@@ -10,34 +10,34 @@ from datetime import datetime
 # --- 1. CẤU HÌNH BẢO MẬT & THÔNG TIN ---
 # BẠN HÃY THAY ĐỔI MẬT KHẨU CỦA MÌNH Ở DÒNG DƯỚI ĐÂY:
 MAT_KHAU_DUNG = "051291" 
-TEN_TAC_GIA = "Hoàng Vương"
+TEN_TAC_GIA = "Hoàng Vương - Ủy viên UBKT Đảng ủy xã Hàm Thạnh " # Đã cập nhật tên tác giả
 
 # Cấu hình trang web
 st.set_page_config(page_title=f"AI TTS Portal - {TEN_TAC_GIA}", page_icon="🎤", layout="wide")
 
-# --- 2. TÂN TRANG GIAO DIỆN (Đổi màu & Font) ---
+# --- 2. TÂN TRANG GIAO DIỆN (Đổi sang tông màu sáng & hài hòa hơn) ---
 # Chúng ta dùng CSS để thay đổi diện mạo ứng dụng chuyên nghiệp hơn
 st.markdown(f"""
 <style>
     /* Màu nền chính và font chữ */
     .stApp {{
-        background-color: #0e1117;
-        color: #fafafa;
+        background-color: #F8F9FA; /* Màu nền xám nhạt chuyên nghiệp */
+        color: #212529; /* Màu văn bản chính */
         font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     }}
     /* Màu tiêu đề */
-    h1, h2, h3 {{
-        color: #00a8ff !important;
+    h1, h2, h3, h4 {{
+        color: #1E3A8A !important; /* Màu xanh dương đậm chuyên nghiệp */
         font-weight: 700;
     }}
     /* Tùy chỉnh Sidebar (Thanh bên) */
     [data-testid="stSidebar"] {{
-        background-color: #161b22;
-        border-right: 1px solid #30363d;
+        background-color: #FFFFFF; /* Màu nền trắng sạch sẽ */
+        border-right: 1px solid #E5E7EB; /* Viền xám nhạt */
     }}
     /* Tùy chỉnh nút bấm chính */
     .stButton>button {{
-        background-color: #00a8ff;
+        background-color: #1D4ED8; /* Màu xanh dương nổi bật */
         color: white;
         border-radius: 8px;
         border: none;
@@ -46,17 +46,22 @@ st.markdown(f"""
         width: 100%;
     }}
     .stButton>button:hover {{
-        background-color: #0084cc;
+        background-color: #1E40AF; /* Màu xanh dương đậm khi di chuột */
         transform: scale(1.02);
     }}
     /* Khu vực Author Branding */
     .author-box {{
         padding: 15px;
         border-radius: 10px;
-        background-color: #1f2937;
-        border: 1px solid #374151;
+        background-color: #FFFFFF; /* Nền trắng */
+        border: 1px solid #D1D5DB; /* Viền xám nhạt */
         text-align: center;
         margin-bottom: 20px;
+        color: #333333; /* Màu văn bản trong hộp tác giả */
+    }}
+    /* Tùy chỉnh màu văn bản phụ */
+    .stCaption {{
+        color: #6C757D !important;
     }}
 </style>
 """, unsafe_allow_html=True)
@@ -141,9 +146,9 @@ async def process_batch_tts(text_list, filenames_list, voice, rate):
 # Sidebar: Nơi chứa Logo và Cấu hình giọng
 with st.sidebar:
     st.markdown(f"""
-    <div class="author-box" style="border-color: #00a8ff;">
+    <div class="author-box" style="border-color: #1E3A8A;">
         <h1 style='font-size: 40px; margin:0;'>🎤</h1>
-        <h3 style='margin:10px 0 0 0; color:white !important;'>AI TTS Portal</h3>
+        <h3 style='margin:10px 0 0 0; color:#1E3A8A !important;'>AI TTS Portal</h3>
         <p style='margin:0; opacity:0.8;'>By {TEN_TAC_GIA}</p>
     </div>
     """, unsafe_allow_html=True)
